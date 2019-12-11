@@ -9,9 +9,6 @@ public class MainSolution {
 
 
         boolean checkNorth = false;
-        boolean isNorthTheSameCountry = false;
-        boolean isEastTheSameCountry = false;
-
 
         for (int i = 0; i < n; i++) {
 
@@ -24,6 +21,10 @@ public class MainSolution {
 
 
                     possibleCountries = possibleCountries - 1;
+                    if (n - 1 == i && m - 1 == j) {
+
+                        break;
+                    }
                     if (i != 0)
                         checkNorth = false;
 
@@ -40,30 +41,24 @@ public class MainSolution {
 
                 }
 
-                if (n!=1&& m!=1 && i + 1 == n && j + 1 == m && A[i][j] == A[i][j - 1] && A[i - 1][j] == A[i][j]) {
-
-                    System.out.println("test");
+                if (n != 1 && m != 1 && i + 1 == n && j + 1 == m && A[i][j] == A[i][j - 1] && A[i - 1][j] == A[i][j]) {
 
 
-                    if(n==2) {
+                    if (n == 2) {
 
                         if (A[i - 1][j] != A[i - 1][j - 1]) {
                             possibleCountries = possibleCountries - 1;
 
                         }
 
-                    }
-
-                 else   if (A[i - 1][j] != A[i - 1][j - 1] && A[i - 1][j] != A[i - 2][j]) {
-                        possibleCountries=possibleCountries-1;
+                    } else if (A[i - 1][j] != A[i - 1][j - 1] && A[i - 1][j] != A[i - 2][j]) {
+                        possibleCountries = possibleCountries - 1;
 
                     }
 
 
                 }
 
-
-//
 
             }
 
